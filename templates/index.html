@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% csrf_token %}
+{% for n in news %}
+    <img src="{{ n.image.url }}" style="width: 160px;"><br>
+    <h2>{{ n.title }}</h2>
+    {{ n.text }}<br>
+{% endfor %}
+<audio controls>
+    <source src="{{ music.file.url }}">
+</audio>
+<form enctype="multipart/form-data" method="post">
+    <p><input type="file" name="f">
+        <input type="submit" value="Отправить"></p>
+</form>
+</body>
+</html>
